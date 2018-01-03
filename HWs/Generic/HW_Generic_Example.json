@@ -1,0 +1,102 @@
+{
+  "Device Name": "String",
+  "Device Version": "String",
+  "Device Description": "String",
+    "CommBoard": {
+      "Name" : "String",
+      "Description" : "String",
+      "HW Version" : "String",
+      "Microcontroller" :
+      {
+      "Name" : "String",
+      "Brand": "String",
+      "Family": "String",
+      "Flash Size": "Number",
+      "RAM": "Number",
+      "Internal EEPROM": "Number",
+      "NVM": ["EEPROM", "SD", "BOTH", "OTHER"],
+      "EX_EEPROM_SIZE": "Number",
+      "EX_SD_SIZE": "Number",
+      "MAX_SPI": "Number",
+      "MAX_I2C": "Number",
+      "MAX_UART": "Number",
+      
+      "Interfaces": {
+            "SPI_X": {
+              "Number": "Number",
+              "Status":  ["OK", "NOK", "ERROR"],
+              "Protocol": "String",
+               "Config": {
+               "SCLK_PIN": "Number", 
+               "MOSI_PIN": "Number",
+               "MISO_PIN": "Number",
+               "SS_PIN":   "Number"
+               }
+                   },
+            "I2C_X": {
+              "Number": "Number",
+              "Status": ["OK", "NOK", "ERROR"],
+              "Protocol": "String",
+              "Config": {
+               "SDA_PIN": "Number", 
+               "SCL_PIN": "Number"
+               
+                   }
+                    },
+            "UART_X": {
+              "Number": "Number",
+              "Status":  ["OK", "NOK", "ERROR"],
+              "Protocol": "String",
+              "Config": {
+               "TX_PIN": "Number",
+               "RX_PIN": "Number",
+               "Baudrate": "Number", 
+               "Number of data bits": "Number",
+               "Parity": "String",
+               "Stop Bits": "Number"
+                   }
+                   },
+              "GPIO": {
+              "Total Number": "Number",
+              "D_Outputs":  "Number",
+              "D_Inputs": "Number",
+              "A_Inputs": "Number",
+              "A_Outputs": "Number",
+              "PWM": "Number"
+                   }
+                    
+                  }
+      }
+      
+    },
+        
+  
+    "BaseBoard": {
+      "Name" : "String",
+      "Description" : "String",
+      "HW Version" : "String",
+        "External_Connectors": {
+            "Wired": "Number",
+            "DB9": "Number",
+            "RJ45": "Number",
+            "SMA": "Number",
+            "BNC": "Number",
+            "OTHER": "Number"
+        }
+        
+    },
+    
+    "External Periphericals": {
+        "Ex_P_Name": {
+            "Type": "String",
+            "Brand": "String",
+            "Model": "String",
+            "Description": "String",
+            "Interface Type": ["SPI", "I2C", "UART"],
+            "Interface Number": "Number",
+            "Protocol": "String"
+      }
+      
+    }
+
+}
