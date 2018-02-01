@@ -1,0 +1,203 @@
+{
+  "asyncapi": "1.0.0",
+  "x-topic-separator": "/",
+  "info": {
+    "title": "MVP Scinap Sinapse API",
+    "version": "0.0.1",
+    "description": "The SCINAP API allows you to manage the MVP of Sinapse IoT HUB",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "baseTopic": "CLIENTID.IOT",
+  "servers": [
+    {
+      "url": "soporte-tecnico.bitnamiapp.com:{port}",
+      "scheme": "mqtt",
+      "description": "Sinapse Broker hosted in soporte-tecnico bitnami machine",
+      "variables": {
+        "port": {
+          "description": "Secure connection (TLS) is available through port 8883.",
+          "default": "1883",
+          "enum": [
+            "1883",
+            "8883"
+          ]
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "apiKey": []
+    }
+  ],
+  "topics": {
+    "ACT.{ID}.321": {
+      "subscribe": {
+        "$ref": "#/components/messages/spiOD",
+      }
+    },
+    "SEN/MEASUREMENTS/721": {
+      "publish": {
+        "$ref": "#/components/messages/spiM" 
+      }
+    }
+  },
+  "components": {
+    "messages": {
+      "spiOD": {
+        "summary": "Device send a payload through SPI Interface to peripheral",
+        "description": "The IoT device receives this message and then transmit the received payload to the SPI interface indicated in the message.\n 
+        The SPI return a response and this content is sent as a payload into the response message (721;). \n 
+        If LOCATE is true, then the response message contains also the GPS location.",
+        "payload": {
+          "$ref": "#/components/schemas/spiOD"
+        },
+        "tags": [
+          {
+            "name": "ondemand"
+          },
+          {
+            "name": "send payload"
+          },
+          {
+            "name": "721;", 
+            "description": "Response message after process the action"
+          }
+        ]
+      },
+      "spiM": {
+        "summary": "Response that contains the payload sent by the asked SPI",
+        "description": "TODO",
+        "payload": {
+          "$ref": "#/components/schemas/spiM"
+        },
+        "tags": [
+          {
+            "name": "response"
+          },
+          {
+            "name": "ondemand"
+          }
+        ]
+      }
+      
+    },
+    "schemas": {
+      "spiOD": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "321;{SPI};{PAYLOAD_SPI};{FORMAT};{LOCATE};"
+          },
+          "SPI": {
+            "$ref": "#/components/schemas/SPI"
+          },
+          "PAYLOAD_SPI": {
+            "$ref": "#/components/schemas/PAYLOAD"
+          },
+          "FORMAT": {
+            "$ref": "#/components/schemas/FORMAT"
+          },
+          "LOCATE": {
+            "$ref": "#/components/schemas/LOCATE"
+          }
+        }
+      },
+      "spiM": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "721;{ID};{SPI};{PAYLOAD_SPI_R};{FORMAT};{LAT};{LONG};{TIMESTAMP};"
+          },
+          "ID": {
+            "$ref": "#/components/schemas/ID"
+          },
+          "SPI": {
+            "$ref": "#/components/schemas/SPI"
+          },
+          "PAYLOAD_SPI_R": {
+            "$ref": "#/components/schemas/PAYLOAD_R"
+          },
+          "FORMAT": {
+            "$ref": "#/components/schemas/FORMAT"
+          },
+          "LAT": {
+            "$ref": "#/components/schemas/LAT"
+          },
+          "LONG": {
+            "$ref": "#/components/schemas/LONG"
+          },
+          "TIMESTAMP": {
+            "$ref": "#/components/schemas/TIMESTAMP"
+          }
+        }
+      },
+      "SPI" : {
+        "type": "string",
+        "description": "ID of the SPI interface of the commboard",
+        "enum": [
+          "1",
+          "2"
+        ]
+      },
+      "PAYLOAD" : {
+        "type": "string",
+        "description": "Payload to be sent through an interface like SPI, UART, I2C, etc. The string can contains binary, decimal, hexadecimal or ASCII characters"
+      },
+      "PAYLOAD_R" : {
+        "type": "string",
+        "description": "Payload sent as response to a question through an interface like SPI, UART, I2C, etc. The string can contains binary, decimal, hexadecimal or ASCII characters"
+      },
+      "FORMAT" : {
+        "type": "string",
+        "description": "Indicates the format of the payload",
+        "enum": [
+          "HEX",
+          "DEC",
+          "BIN",
+          "ASCII"
+        ]
+      },
+      "LOCATE" : {
+        "type": "string",
+        "description": "Indicates if a location should be sent in the response",
+        "enum": [
+          "1",
+          "0"
+        ]
+      },
+      "PERIOD" : {
+        "type": "string",
+        "description": "Indicates the sampling period in seconds"
+      },
+      "ID": {
+       "type": "string",
+       "description": "ID of the IoT device"
+      },
+      "LAT": {
+       "type": "string",
+       "description": "GPS latitude of the IoT device in the moment of the message generation"
+      },
+      "LONG": {
+       "type": "string",
+       "description": "GPS longitude of the IoT device in the moment of the message generation"
+      },
+      "TIMESTAMP": {
+       "type": "string",
+       "description": "Timestamp of the message generation"
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "in": "user",
+        "description": "Provide your API key as the user and leave the password empty."
+      }
+    }
+  }
+}
