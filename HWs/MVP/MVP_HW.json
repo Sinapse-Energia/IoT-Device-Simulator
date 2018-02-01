@@ -1,0 +1,58 @@
+{
+  "Device Name": "MVP IoT Hub",
+  "Device Version": "IoT_Hub_V0p2",
+  "Device Description": "IoT Hub with only one SPI interface",
+    "CommBoard": {
+      "Name" : "CommBoard F2 BG96",
+      "Description" : "Commoboard based in ST F2 and communications transceiver BG96",
+      "HW Version" : "V0p2",
+      "Microcontroller" :
+      {
+      "Name" : "ST_F2_12345VG",
+      "Brand": "ST",
+      "Family": "F2",
+      "Flash Size": 1024,
+      "RAM": 128,
+      "Internal EEPROM": 128,
+      "NVM": "EEPROM",
+      "EX_EEPROM_SIZE": 256,
+      "EX_SD_SIZE": 0,
+      "MAX_SPI": 1,
+      "MAX_I2C": 0,
+      "MAX_UART": 0,
+      
+      "Interfaces": {
+            "SPI_X": {
+              "Number": 1,
+              "Status":  "OK",
+              "Protocol": "Modbus 485",
+               "Config": {
+               "SCLK_PIN": 1, 
+               "MOSI_PIN": 2,
+               "MISO_PIN": 4,
+               "SS_PIN":   6
+               }
+            }              
+          }
+      }     
+    },    
+    "BaseBoard": {
+      "Name" : "BaseBoard IoT",
+      "Description" : "BaseBoard ready for IoT deployments",
+      "HW Version" : "V3p1",
+        "External_Connectors": {
+            "Wired": 1,
+            "DB9": 2,
+            "RJ45": 3,
+            "SMA": 4,
+            "BNC": 5,
+            "OTHER": 0
+        }
+        
+    },
+    
+    "External Periphericals": {
+      
+    }
+
+}
