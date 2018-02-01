@@ -27,3 +27,8 @@ It describes the MQTT API understood by a Device. It is based in an OpenAPI spec
 ## HW-JSON
 
 It describes a generic hardware device (Template) and contains the structure of a Sinapse HW Device, with the interfaces and the pheripherals. It not follows any open specification, instead is a Sinapse Internal format.
+
+# MOCKUP
+
+https://github.com/Sinapse-Energia/IoT-Device-Simulator/blob/master/Doc/IoT%20Device%20Simulator_mockup.pdf
+
