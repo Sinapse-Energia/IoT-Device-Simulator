@@ -32,3 +32,10 @@ It describes a generic hardware device (Template) and contains the structure of 
 
 https://github.com/Sinapse-Energia/IoT-Device-Simulator/blob/master/Doc/IoT%20Device%20Simulator_mockup.pdf
 
+# MVP
+
+The minimum viable product is the implementation of the basic history with the MVP JSONs:
+
+MVP Hardware: https://github.com/Sinapse-Energia/IoT-Device-Simulator/tree/master/HWs/MVP
+MVP API: https://github.com/Sinapse-Energia/IoT-Device-Simulator/tree/master/APIs/MVP
+
