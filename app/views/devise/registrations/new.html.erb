@@ -1,0 +1,44 @@
+<div role="tabpanel" class="tab-pane" id="signup">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
+<%= devise_error_messages! %>
+<div class="form-group">
+    <div class="col-xs-12">
+        <%= f.text_field :first_name, class: 'form-control email-filed', placeholder: 'First Name' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">
+        <%= f.text_field :last_name, class: 'form-control email-filed', placeholder: 'Last Name' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">
+        <%= f.email_field :email, class: 'form-control msg-filed', placeholder: 'Email Address' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">
+        <%= f.password_field :password, class: 'form-control password-filed', placeholder: 'Password' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">
+          <%= f.password_field :password_confirmation, class: 'form-control password-filed', placeholder: 'Confirm Password' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">
+        <div class="checkbox">
+            <%= f.check_box :terms_of_service, id: 'tc1' %>
+            <label for="tc1">I accept <%= link_to 'Terms & Conditions', terms_path, target: '_blank' %></label>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-default login-btn">Sign Up</button>
+    </div>
+</div>
+<% end %>
+</div>

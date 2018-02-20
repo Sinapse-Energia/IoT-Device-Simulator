@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%= render 'shared/application_partials/head' %>
+
+    <body>
+        <!-- Navigation -->
+        <%= render 'shared/application_partials/nav' %>
+
+        <div class="main-wrapper">
+            <%= yield %>
+            <div class="clear"></div>
+        </div>
+
+        <!---FOOTER START --->
+        <%= render 'shared/application_partials/footer'%>
+        <!---FOOTER END --->
+
+    </body>
+</html>

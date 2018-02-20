@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%= render 'shared/session_partials/head' %>
+    <body>
+        <div class="login-container">
+            <div class="left-section"></div>
+            <div class="right-section">
+                <div class="logo-section">
+                    <%= link_to image_tag('login-logo.svg', alt: 'logo'), root_path %>
+                </div>
+
+                <div class="form-section">
+                  <% if current_class?('/users/sign_in') || current_class?('/users/sign_up') || current_class?('/users') %>
+
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class= <%= current_class?('/users/sign_in') ? 'active' : '' %> >
+                            <%= link_to 'Sign In', new_user_session_path, role: "tab" %>
+                        </li>
+                        <li role="presentation" class= <%= (current_class?('/users/sign_up') || current_class?('/users')) ? 'active' : '' %> >
+                            <%= link_to 'Sign Up', new_user_registration_path,'role': 'tab' %>
+                        </li>
+                    </ul>
+                  <% end %>
+
+                  <%= yield %>
+                </div>
+          </div>
+        </div>
+    </body>
+</html>

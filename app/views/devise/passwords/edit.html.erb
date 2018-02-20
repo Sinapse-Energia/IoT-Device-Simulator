@@ -1,0 +1,35 @@
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="signin">
+
+        <label for="re1">Enter new password</label>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="form-group">
+            <div class="col-xs-12">
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+              <% end %>
+              <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control password-filed', placeholder: 'Password' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12">
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control password-filed', placeholder: 'Password confirmation' %>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                <%= f.submit 'Submit', class: 'btn btn-default login-btn' %>
+            </div>
+        </div>
+    <% end %>
+
+</div>
+<%= render "devise/shared/links" %>
+</div>

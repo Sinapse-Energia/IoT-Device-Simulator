@@ -1,0 +1,200 @@
+
+
+
+        /***********************************************
+                       HELP PAGE START
+		************************************************/
+
+
+
+.help-content{width:100%; float:left; }
+.help-content h2{width:100%; float:left; color:#6ebf5d; font-size:18px; margin:0; padding-bottom:40px;font-family: 'helvetica_neue_lt_std65Md';}
+.help-content .paragrapg{float:left; width:100%; padding-bottom:40px;}
+.help-content .paragrapg:last-child{ padding-bottom:0;}
+.help-content .paragrapg p{font-size:13px; color:#000000; font-family: 'helvetica_neue_lt_std55_roman'; line-height:25px; margin-bottom:0;}
+.p-two h2{ padding-bottom:30px;  }
+.p-two h3{margin-top:15px; font-size:15px; color:#000; margin-bottom:18px;  font-family: 'helvetica_neue_lt_std65Md';}
+.p-two p{font-size:14px; color:#000; line-height:25px;}
+.panel-box .panner-in.p-two{height:186px;}
+.p-three h2{padding-bottom:30px;}
+.p-three p{line-height:25px; font-size:13px; margin-bottom:0; color:#010101;}
+
+.buttonpnnl{float:left; width:100%;}
+button.button-create.device{float:right; text-transform:uppercase; color:#fff; background-color:#6ebf5d; border-radius:50px; border:none; display:table; font-size:15px; font-family: 'helvetica_neue_lt_std65Md'; background-image:url(../assets/button-add.png); background-repeat:no-repeat; background-position: 15px center; padding: 8px 20px 6px 35px;}
+button.button-create.device:hover{background-color:#f39200;}
+button.button-create.device img{padding-right:10px; float:left;}
+
+button.button-create.device span{display:table-cell; vertical-align:middle;}
+
+		/* media quaries start */
+
+@media(min-width:992px){
+.help-content{padding-right:230px;}
+}
+@media(min-width:768px){
+#globalview .panel-box{height:260px;}
+
+}
+@media(max-width:767px){
+.help-content h2, .help-content .paragrapg{padding-bottom:30px;}
+.buttonpnnl{float:none; text-align:center;}
+button.button-create.device{float:none; margin:0 auto;}
+}
+
+        /***********************************************
+                       HELP PAGE end
+		************************************************/
+
+		  /***********************************************
+                       MQTT Client PAGE START
+		************************************************/
+
+.MQTT-Client-form{float:left; width:100%;}
+form.mqtt-form{float:left; width:100%;}
+.mqtt-form .form-group{float:left; width:100%;}
+
+#mqttclient .mypannal h2{padding-bottom:50px;}
+#mqttclient
+.panel-box .buttons{float:left; width:100%; text-align:center; padding-top:23px;}
+.panel-box .buttons .dbtn{float:left; width:100%; }
+.panel-box .buttons .disconnnect-button{float:left; width:100%; }
+.panel-box .buttons .disconnnect-button .desable-button a{background-color:#f5841f; line-height:35px; display:table; margin:0 auto; border-radius:50px; color:#fff; font-size:15px;text-transform:uppercase; width:190px; margin:0 auto; font-family: 'helvetica_neue_lt_std65Md';}
+.panel-box .buttons .disconnnect-button .desable-button .c-btn-icn, .panel-box .buttons .disconnnect-button .desable-button .c-btn-txt{ display:table-cell;}
+.panel-box .buttons .connnect-button .desable-button a{display:inline-block; background-color:#6ebf5d; display:table; margin:0 auto;  line-height:35px; border-radius:50px; color:#fff; font-size:15px; text-transform:uppercase; width:190px; margin:45px auto 0 auto; font-family: 'helvetica_neue_lt_std65Md';}
+.panel-box .buttons .connnect-button .desable-button .c-btn-icn, .panel-box .buttons .disconnnect-button .desable-button .c-btn-icn{width:55px; vertical-align:middle; text-align:center;}
+.c-btn-icn img{margin-top:-4px;}
+.panel-box .buttons .connnect-button .desable-button .c-btn-txt, .panel-box .buttons .disconnnect-button .desable-button .c-btn-txt{text-align:left;}
+.panel-box .buttons .connnect-button .desable-button .c-btn-icn, .panel-box .buttons .connnect-button .desable-button .c-btn-txt{vertical-align:middle; display:table-cell; }
+.panel-box .status{float:left; width:100%;}
+.panel-box .status h4{float:left; width:100%; margin-top:0; margin-bottom:14px; color:#4b4c4f; font-size:15px; font-family: 'helvetica_neue_lt_std55_roman'; }
+.panel-box .status .status-area{float:left; width:100%; background-color:#efefef; height:115px; border-radius:5px;}
+.panel-box .Tempates-table{float:left; width:100%; font-size:12px;  font-family: 'helvetica_neue_lt_std65Md';}
+.panel-box .Tempates-table .device-detail-table{float:left; width:100%; height:100%;}
+.panel-box h4{margin:0; padding-bottom:14px; font-size:15px; color:#000000;font-family: 'helvetica_neue_lt_std65Md'; border-bottom:1px solid #eaeaea;}
+.panel-box .table-striped>tbody>tr:nth-of-type(odd){background-color: #f4f4f4}
+.Tempates-table .device-detail-table table tr td:last-child{text-align:left;}
+.panel-box .table>thead>tr>th{border-bottom:1px solid #eaeaea;}
+.panel-box .table>tbody>tr>td {border:none; vertical-align:middle;}
+h4.Status{border-bottom:0; padding-bottom:0;}
+
+
+.mypannal-two h2{padding-bottom:30px;}
+#management .submit-btn-green{margin-top:0;}
+#management .form-group select{height:48px; background-color: transparent; border:0; border-bottom:1px solid #b7b7b7; border-radius:0; -webkit-box-shadow:none; box-shadow:none; font-size:15px; color: #4b4c4f;width:100%;-webkit-appearance: none; position:relative;}
+#management .form-group select:before{content:"";  background: url(../assets/select-arrow.svg) no-repeat; position:absolute;}
+#management .panel-box .buttons{padding-top:20px;}
+#management .panel-box .buttons .dbtn, #management .panel-box .buttons .disconnnect-button{width:auto;}
+#management .panel-box .buttons .connnect-button .{margin: 0 auto; width:140px;}
+#management .panel-box .buttons .disconnnect-button a{width:140px;}
+#management .bottom .buttons .connnect-button {width:106px;}
+#management .panel-box .buttons .connnect-button{margin-left:30px;}
+#management .panel-box .buttons .disconnnect-button a{background-color:#a7a7a7;}
+#management .panel-box .buttons .disconnnect-button a:hover{background-color:#f39200;}
+#management .panel-box .buttons .connnect-button .desable-button a{margin-top:0;}
+#management .panel-box .buttons .desable-button{width:140px;}
+#management .panel-box .buttons .desable-button:hover{background-color:#f39200;}
+#management .bottom .panel-head .status-area{border-radius:0; padding:20px;}
+#management .bottom .panel-head h2{width:auto; padding-bottom:30px;}
+#management .bottom .buttons{width:auto; float:right; padding-top:0;}
+#management .bottom .buttons .connnect-button{margin-left:0;}
+#management .bottom .buttons .connnect-button a{line-height:25px;}
+#management .bottom .buttons .dbtn a:hover{background-color:#f39200;}
+
+#management .bottom .status-area{float: left; width: 100%; background-color: #efefef;height: 213px; border-radius: 5px;}
+#management .bottom .status-area .text-in{float: left; width: 100%; font-size:12px;}
+#management .bottom .text-in .lineone{float: left; width: 100%; }
+#management .status-area .text-in:nth-child(2), #management .status-area .text-in:nth-child(3)  { padding-left:10px;}
+#management .content{ width:100%; float:left; height:213px; }
+#management .content h3{font-size:20px; margin-top:0;  font-family: 'helvetica_neue_lt_std65Md';}
+#management .content p{font-size:12px; font-family: 'helvetica_neue_lt_std55_roman'; }
+#management .content h5{font-size:15px; float:left; width:100%;  font-family: 'helvetica_neue_lt_std65Md'; margin-top:0; margin-bottom:5px;}
+#management .bottom-table{display:block; float:left; width:100%;}
+#management .bottom-table table{border-top:1px solid #eaeaea; font-size:12px; font-family: 'helvetica_neue_lt_std55_roman';}
+#management .bottom-table select{border:0; width:100%;}
+#management .bottom-table td.custom-dropdown .ddcommon{z-index:inherit;}
+#management .bottom-table .dd .ddChild{top:30px !important;}
+#management .bottom-table .custom-dropdown{width:100%;}
+#management .bottom-table .table>tbody>tr>td:nth-child(1) {padding-left:20px;}
+#management .bottom-table select.form-control{height:auto;}
+#management .bottom-table .form-control{padding-top: 0;
+    padding-bottom: 0;min-width: 194px;}
+#management .bottom-table .ddcommon .ddTitle .ddTitleText{display:initial;font-size:12px; color:#000000; padding:0 10px;}
+#management .bottom-table td.custom-dropdown{width:100%;}
+#management .bottom .buttons{padding-bottom:25px;}
+#management .bottom .buttons .c-btn-icn{width:35px;}
+#management .bottom .connnect-button  a{width:106px;}
+#management .bottom .desable-button{width:105px !important;}
+.table>thead:first-child>tr:first-child>th{font-size:15px;}
+#management .bottom-table select.form-control {    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;}
+#management .bottom-table select.form-control::-ms-expand {
+display: none;}
+.text-orange{color:#f5841f; float:left;}
+.text-green{color:#6ebf5d; float:left;}
+
+#management .bottom .buttons .connnect-button a:hover{background: #f39200!important;}
+#management .bottom .buttons .connnect-button a.update {
+    display: inline-block;
+    background-color: #6ebf5d;
+    display: table;
+    margin: 0 auto;
+    line-height: 1;
+    padding: 6px 0px 4px 0px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'helvetica_neue_lt_std65Md';
+    text-transform: uppercase;
+
+}
+#management .bottom-table  .custom-dropdown {font-size:12px;}
+
+		/* media qury */
+@media(min-width:768px){
+.mqtt-form .form-group .mb-xs-15{padding-bottom:30px;}
+}
+
+@media(max-width:480px){
+.form-horizontal .dbtn{float:left; width:100% !important;}
+#management .panel-box .buttons .connnect-button{margin-left:0; }
+#management .panel-box .buttons .disconnnect-button {padding-bottom:25px;}
+}
+@media(max-width:767px){
+input.form-control.mqtt-pd{padding-bottom:0;}
+.panel-box .buttons{padding-top:0;}
+#management .bottom .buttons{width:100%;}
+#management .bottom .buttons .dbtn{float:none;}
+.panel-box .buttons .connnect-button a{    margin: 25px auto 0 auto;}
+.panel-box .status {margin-top:30px;}
+.form-horizontal .form-group{margin-bottom:0;}
+.panel-box .buttons .connnect-button .desable-button a{margin-top:30px;}
+}
+@media(max-width:991px){
+.panel-box .Tempates-table{padding:20px 0; height:215px;}
+#management .bottom .buttons{padding-top:25px;}
+}
+
+
+
+
+
+@media (min-width:768px){
+.p-r-10{padding-right:10px;}
+.middle-container .my-panel{height:275px;}
+.p-l-10{padding-left:10px;}
+
+}
+
+
+
+		  /***********************************************
+                       MQTT Client PAGE end
+		************************************************/
+
+
+
+
+
+		/* globel view */
+.resume-detail ul li:nth-child(2){padding-top:17px;}

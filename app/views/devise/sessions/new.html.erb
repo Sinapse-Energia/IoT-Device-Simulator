@@ -1,0 +1,40 @@
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="signin">
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+          <%- end -%>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control email-filed', id: 'inputEmail3', placeholder: 'Email Address', required: true %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <%= f.password_field :password, autocomplete: "off", class: 'form-control password-filed', id: 'inputPassword3', placeholder: 'Password', required: true %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="checkbox">
+                        <%= f.check_box :remember_me, id: "re1" %>
+                        <label for="re1">Remember Me</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+
+                    <%= f.button 'Sign in', type: 'submit', class: 'btn btn-default login-btn' %>
+                </div>
+            </div>
+        <% end %>
+        <div class="forgot-footer">
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Forgot your password?", new_password_path(resource_name) %><br/>
+            <% end -%>
+        </div>
+    </div>
+</div>
