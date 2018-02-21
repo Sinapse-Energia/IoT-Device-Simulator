@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'home#index'
+  root to: 'devices#index'
 
   devise_for :users, controllers: {
         sessions: 'users/sessions',
@@ -8,5 +8,10 @@ Rails.application.routes.draw do
         passwords: 'users/passwords'
       }
 
-  get 'terms', to: 'home#terms'    
+  get 'terms', to: 'static_pages#terms'
+  get 'help', to: 'static_pages#help'
+
+  get 'templates', to: 'templates#index'
+  get 'templates/new', to: 'templates#new'
+  get 'devices/new', to: 'devices#new'
 end

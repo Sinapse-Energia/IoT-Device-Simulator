@@ -14,20 +14,25 @@
           <% if current_user %>
 
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li>
-                    <a href="#">
-                        <i class="device-icon"></i>
-                        Website</a>
+                <li class=<%= controller_name.include?('devices') ? 'active' : '' %> >
+                  <%= link_to root_path do %>
+                    <i class="device-icon"></i>
+                    Devices
+                  <% end %>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="template-icon"></i>
-                        Templates</a>
+
+                <li class=<%= controller_name.include?('templates') ? 'active' : '' %>>
+                  <%= link_to templates_path do %>
+                    <i class="template-icon"></i>
+                    Templates
+                  <% end %>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="help-icon"></i>
-                        Help</a>
+
+                <li class=<%= controller_name.include?('static') ? 'active' : '' %> >
+                  <%= link_to help_path do %>
+                    <i class="help-icon"></i>
+                    Help
+                  <% end %>
                 </li>
             </ul>
 
