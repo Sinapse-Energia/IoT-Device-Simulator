@@ -31,9 +31,13 @@ class DevicesController < ApplicationController
   def connect
     update_mqtt_details
     client = mqtt_client
+
     client.connect
-    @device.mqtt_broker.update(connected: true)
-    redirect_to root_path
+
+    if client.connected?
+      @device.mqtt_broker.update(connected: true)
+      redirect_to root_path
+    end
   end
 
   private
@@ -49,18 +53,18 @@ class DevicesController < ApplicationController
   end
 
   def mqtt_client
-    MQTT::Client.new(host: params[:host],
-       port: params[:port],
-       username: params[:user],
-       password: params[:password]
+    MQTT::Client.new(host: params[:mqtt_broker][:host],
+       port: params[:mqtt_broker][:port],
+       username: params[:mqtt_broker][:user],
+       password: params[:mqtt_broker][:password]
     )
   end
 
   def update_mqtt_details
     @device = Device.find(params[:id])
-    @device.mqtt_broker.update(host: params[:host],
-       port: params[:port],
-       username: params[:user],
-       password: params[:password])
+    @device.mqtt_broker.update(host: params[:mqtt_broker][:host],
+       port: params[:mqtt_broker][:port],
+       username: params[:mqtt_broker][:user],
+       password: params[:mqtt_broker][:password])
   end
 end
