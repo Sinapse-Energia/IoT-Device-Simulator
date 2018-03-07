@@ -327,6 +327,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdde4', end
 .profileform-section .submit-btn:hover, .profileform-section .submit-btn:focus, .settingform-section .submit-btn:hover, .settingform-section .submit-btn:focus{-webkit-box-shadow: none;     box-shadow: none;     outline: 0;     background: #f39200;     color: #fff;}
 
 .settingform-section{width:100%;}
+
+.dd .ddcommon .borderRadiusTp .ddChild .border .shadow{
+  height: auto;
+}
 		/***********************************************
                         MEDIA QUERY START
 		************************************************/

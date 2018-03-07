@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   get 'terms', to: 'static_pages#terms'
   get 'help', to: 'static_pages#help'
 
-  get 'templates', to: 'templates#index'
-  get 'templates/new', to: 'templates#new'
-  get 'devices/new', to: 'devices#new'
+  resources :templates
+  resources :devices do
+    member do
+      post :connect
+      post :disconnect
+    end
+  end
 end

@@ -24,18 +24,19 @@
                 <h2>Create Tempate</h2>
              </div>
               <div class="dc-management-form">
-               <form class="form-horizontal">
+               <%= form_for(@template, html: {class: 'form-horizontal', multipart: true}) do |f| %>
                  <div class="form-group">
                  <div class="col-xs-12 col-sm-12 mb-xs-15">
                     <div class="row">
                         <div class="col-xs-12 col-sm-5 mb-xs-15">
-                          <input type="text" class="form-control"  placeholder="Tempate Name Here">
+                          <%= f.text_field :name, class: 'form-control', placeholder: "Tempate Name Here" %>
                       </div>
                       <div class="col-xs-12 col-sm-7">
                           <div class="file-upload cs-templete">
                          <div class="file-select">
                          <div class="file-select-name" id="noFile">JSON Name Here</div>
-                         <input type="file" name="chooseFile" id="chooseFile">
+                         <%= f.hidden_field :json_name, id: 'json_name' %>
+                         <%= f.file_field :hardware_json, id: "chooseFile" %>
                          <div class="file-select-button" id="fileName">Import JSON</div>
                          </div>
                        </div>
@@ -49,7 +50,7 @@
                    <button type="submit" class="btn submit-btn-green"> Submit</button>
                  </div>
                  </div>
-              </form>
+              <% end %>
               </div>
            </div>
          </div>
@@ -68,51 +69,12 @@
                      </tr>
                    </thead>
                    <tbody style="height:175px;">
+                     <% @templates.each do |t| %>
                      <tr>
-                       <td>Tempate Name 1</td>
+                       <td><%= t.name %></td>
                        <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
                      </tr>
-                     <tr>
-                       <td>Tempate Name 2</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-                       <td>Tempate Name 3</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-                       <td>Tempate Name 4</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-                       <td>Tempate Name 5</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-
-                       <td>Tempate Name 6</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-
-                       <td>Tempate Name 7</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-
-                       <td>Tempate Name 8</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-
-                       <td>Tempate Name 9</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
-                     <tr>
-
-                       <td>Tempate Name 10</td>
-                       <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
-                     </tr>
+                     <% end %>
                    </tbody>
                  </table>
                </div>
@@ -123,4 +85,4 @@
        </div>
       </div>
    </div>
-     <div class="clear"></div> 
+     <div class="clear"></div>

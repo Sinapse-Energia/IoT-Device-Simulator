@@ -139,24 +139,25 @@
 											<div class="row">
 												<div class="col-md-6 col-sm-6 col-xs-12">
 													<div class="MQTT-Client-form">
-														<form class="mqtt-form">
+														<%= form_for @device.mqtt_broker, url: "/devices/#{@device.id}/connect", method: 'POST', html: {class: 'mqtt-form', id: 'mqtt_frm'} do |f| %>
 															<div class="form-group">
 																<div class="row">
 																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<input type="text" class="form-control mqtt-pd" placeholder="URL">
+																		<%= f.text_field :host, class: 'form-control mqtt-pd', placeholder: "URL" %>
 																	</div>
 																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<input type="text" class="form-control mqtt-pd" placeholder="Port">
+																		<%= f.text_field :port, class: 'form-control mqtt-pd', placeholder: "PORT" %>
 																	</div>
 																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<input type="text" class="form-control mqtt-pd" placeholder="User">
+																		<%= f.text_field :username, class: 'form-control mqtt-pd', placeholder: "User" %>
 																	</div>
 																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<input type="text" class="form-control mqtt-pd" placeholder="Password">
+																		<%= f.password_field :password, class: 'form-control mqtt-pd', placeholder: "Password" %>
 																	</div>
 																</div>
 															</div>
-														</form>
+															<input type=hidden id='conn_type' />
+															<% end %>
 													</div>
 												</div>
 												<div class="col-md-6 col-sm-6 col-xs-12">
@@ -175,14 +176,15 @@
 															</div>
 															<div class="connnect-button dbtn">
 															<div class="desable-button">
-																<a href="#">
+																<%= link_to '', onclick: "$('#mqtt_frm').submit()" do %>
 																	<span class="c-btn-icn"><img src="../assets/wifi-connect.png" alt="."> </span>
 																	<span class="c-btn-txt">connect</span>
-																</a>
+																<% end %>
 
 															</div>
 															</div>
 														</div>
+
 													</div>
 													<div class="col-md-6">
 														<div class="status">
@@ -339,11 +341,7 @@
 								    <div class="col-xs-12">
 										<div class="tabing-select">
 										   <div class="custom-dropdown select whtab">
-											   <select class="form-control csdropdown">
-												  <option selected disabled>IoT Hub Scinap3</option>
-												  <option>IoT Hub Scinap</option>
-												  <option>Create New Device</option>
-											   </select>
+												 <%= select_tag 'device_id', options_for_select(@devices << ['Create New Device', '0']), {class: "form-control csdropdown", required: true, id: ''} %>
 										   </div>
 									   </div>
 									</div>
@@ -353,20 +351,13 @@
 												<h2>Import API JSON</h2>
 											</div>
 											<div class="dc-management-form">
-											  <form class="form-horizontal">
-												  <div class="form-group">
+											  <%= form_for @device, html: {class: 'form-horizontal', multipart: true} do |f| %>
+												 <div class="form-group">
 													<div class="col-xs-12 col-sm-12 mb-xs-15">
 													   <div class="row">
 															<div class="col-xs-12 col-md-3 mb-xs-15">
 																<div class="custom-dropdown">
-																	<select class="form-control">
-																		<option>Select Template</option>
-																		<option>Template-1</option>
-																		<option>Template-2</option>
-																		<option>Template-3</option>
-																		<option>Template-4</option>
-																		<option>Template-5</option>
-																	</select>
+																	<%= f.select :template_id, options_for_select(@templates), {class: "form-control", prompt: 'Select Template', required: true} %>
 																	</div>
 															</div>
 															<div class="col-xs-12 col-md-9 mb-xs-15">
@@ -375,22 +366,22 @@
 																	    <div class="file-upload">
 																		  <div class="file-select">
 																			<div class="file-select-name" id="noFile">JSON Name Here</div>
-																			<input type="file" name="chooseFile" id="chooseFile">
+						                          <%= f.file_field :api_json, id: "chooseFile" %>
 																			<div class="file-select-button" id="fileName">Browse</div>
 																		  </div>
 																		</div>
 																	</div>
 																    <div class="right-section">
-																	    <button class="btn import-btn">
-																		    Import
-																		</button>
+																			<%= f.button :submit, class: 'btn import-btn' do	%>
+																	      Import
+																			<% end %>
 																	</div>
 																</div>
 															</div>
 													   </div>
 													</div>
 												  </div>
-												</form>
+												<% end %>
 											</div>
 										</div>
 									</div>
@@ -599,3 +590,10 @@
 		   </div>
 		</div>
 	    <div class="clear"></div>
+
+<script type="text/jscript">
+function connect_mqtt(){
+		$('#conn_type').val('connect');
+		$('#mqtt_frm').submit();
+}
+</script>
