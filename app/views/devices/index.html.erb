@@ -1,170 +1,188 @@
 <div class="top-panel">
-		   <div class="container-fluid">
-		      <div class="row">
-			      <div class="col-xs-12 col-sm-6">
-				      <div class="page-title">Devices</div>
-				  </div>
-				  <div class="col-xs-12 col-sm-6">
-				      <div class="page-breadcrumbs">
-					     <ul>
-						    <li><a href="#">Devices</a></li>
-							<li>IOT Hub Scinap</li>
-						 </ul>
-					  </div>
-				  </div>
-			  </div>
-		   </div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class="page-title">Devices</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="page-breadcrumbs">
+					<ul>
+						<li>
+							<a href="#">Devices</a>
+						</li>
+						<li>IOT Hub Scinap</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-		<div class="middle-container">
-		   <div class="tab-section page-tab">
-		       <div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12">
-						  <!-- Nav tabs -->
-						  <ul class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#globalview" aria-controls="globalview" role="tab" data-toggle="tab">Global View</a></li>
-							<li role="presentation"><a href="#mqttclient" aria-controls="mqttclient" role="tab" data-toggle="tab">MQTT Client</a></li>
-							<li role="presentation" ><a href="#management" aria-controls="management" role="tab" data-toggle="tab">Management</a></li>
-						  </ul>
+	</div>
+</div>
+<div class="middle-container">
+	<div class="tab-section page-tab">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#globalview" aria-controls="globalview" role="tab" data-toggle="tab">Global View</a>
+						</li>
+						<li role="presentation">
+							<a href="#mqttclient" aria-controls="mqttclient" role="tab" data-toggle="tab">MQTT Client</a>
+						</li>
+						<li role="presentation">
+							<a href="#management" aria-controls="management" role="tab" data-toggle="tab">Management</a>
+						</li>
+					</ul>
 
-						  <!-- Tab panes -->
-						  <div class="tab-content">
-							<div role="tabpanel" class="tab-pane active" id="globalview">
-							    <div class="row">
-									<div class="col-xs-12">
-									   <div class="tabing-select">
-										  <div class="custom-dropdown select whtab">
-											   <select class="form-control csdropdown" onchange="if(this.value==1) { window.location='/devices/new';}">
-												  <option selected disabled>IoT Hub Scinap</option>
-												  <option>IoT Hub Scinap</option>
-												  <option value="1">Create New Device</option>
-											   </select>
-										   </div>
-									   </div>
-									</div>
-									<div class="col-xs-12 col-sm-6 p-r-10">
-										<div class="panel-box">
-											<div class="panel-head">
-												<h2>IOT Hub Scinap</h2>
-											</div>
-											 <div class="panner-in p-one">
-												<div class="text-center">
-													<img src="../assets/template-1.png">
-												</div>
-											</div>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="globalview">
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="tabing-select">
+										<div class="custom-dropdown select whtab">
+											<%= devices_dropdown %>
+											<select class="form-control csdropdown" onchange="if(this.value==1) { window.location='/devices/new';}">
+												<option selected="selected" disabled="disabled">IoT Hub Scinap</option>
+												<option>IoT Hub Scinap</option>
+												<option value="1">Create New Device</option>
+											</select>
 										</div>
 									</div>
-										<div class="col-xs-12 col-sm-6 p-l-10">
-											<div class="panel-box">
-												<div class="panel-head">
-													<h2>Resume</h2>
-												</div>
-												<div class="resume-detail roundscroll">
-												    <ul>
-													   <li><label>API :</label>Scinap  V1.0</li>
-													   <li><label>Status :</label>Enabled</li>
-													</ul>
-												</div>
-											</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 p-r-10">
+									<div class="panel-box">
+										<div class="panel-head">
+											<h2>IOT Hub Scinap</h2>
 										</div>
-										<div class="col-xs-12 col-sm-6 p-r-10">
-											<div class="panel-box p-three">
-												<div class="panel-head">
-													<h2>API Commands</h2>
-												</div>
-												<div class="command-detail roundscroll">
-												    <ul>
-													   <li>
-													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
-														  <p>It is a long established fact that a reader </p>
-													   </li>
-													   <li>
-													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
-														  <p>It is a long established fact that a reader </p>
-													   </li>
-													   <li>
-													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
-														  <p>It is a long established fact that a reader </p>
-													   </li>
-													   <li>
-													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
-														  <p>It is a long established fact that a reader </p>
-													   </li>
-													   <li>
-													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
-														  <p>It is a long established fact that a reader </p>
-													   </li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-xs-12 col-sm-6 p-l-10">
-											<div class="panel-box p-three mb-15">
-												<div class="panel-head ">
-													<h2>Interfaces</h2>
-												</div>
-												<div class="interface-detail roundscroll">
-												    <ul>
-													   <li>GPRS</li>
-													   <li>GPS</li>
-													   <li>Modbus</li>
-													   <li>Canbus</li>
-													   <li>Lorem Ipsum</li>
-													</ul>
-												</div>
+										<div class="panner-in p-one">
+											<div class="text-center">
+												<img src="../assets/template-1.png">
 											</div>
 										</div>
 									</div>
-
+								</div>
+								<div class="col-xs-12 col-sm-6 p-l-10">
+									<div class="panel-box">
+										<div class="panel-head">
+											<h2>Resume</h2>
+										</div>
+										<div class="resume-detail roundscroll">
+											<ul>
+												<li>
+													<label>Title :</label><%= @api_json.dig('info', 'title') %></li>
+												<li>
+													<label>Version :</label><%= @api_json.dig('asyncapi') %>
+												</li>
+												<li>
+													<label>Connection Status :</label><%= @device.mqtt_broker.connected? ? 'Connected' : 'Not connected' %>
+												</li>
+												<li>
+													<label>Description :</label><%= @api_json.dig('info', 'description') %>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 p-r-10">
+									<div class="panel-box p-three">
+										<div class="panel-head">
+											<h2>API Commands</h2>
+										</div>
+										<div class="command-detail roundscroll">
+											<ul>
+													   <li>
+													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+														  <p>It is a long established fact that a reader </p>
+													   </li>
+													   <li>
+													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+														  <p>It is a long established fact that a reader </p>
+													   </li>
+													   <li>
+													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+														  <p>It is a long established fact that a reader </p>
+													   </li>
+													   <li>
+													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+														  <p>It is a long established fact that a reader </p>
+													   </li>
+													   <li>
+													      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+														  <p>It is a long established fact that a reader </p>
+													   </li>
+													</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 p-l-10">
+									<div class="panel-box p-three mb-15">
+										<div class="panel-head ">
+											<h2>Interfaces</h2>
+										</div>
+										<div class="interface-detail roundscroll">
+											<ul>
+												<% unless @device.interfaces.blank? %>
+													<% @device.interfaces.each do |interface| %>
+														<li><%= interface %></li>
+													<% end %>
+												<% end %>	
+											</ul>
+										</div>
+									</div>
+								</div>
 							</div>
 
-							<div role="tabpanel" class="tab-pane" id="mqttclient">
-								<div class="row">
-								    <div class="col-xs-12">
-										<div class="tabing-select">
-										   <div class="custom-dropdown select whtab">
-											   <select class="form-control csdropdown">
-												  <option selected disabled>IoT Hub Scinap2</option>
-												  <option>IoT Hub Scinap</option>
-												  <option>Create New Device</option>
-											   </select>
-										   </div>
-									   </div>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="mqttclient">
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="tabing-select">
+										<div class="custom-dropdown select whtab">
+											<select class="form-control csdropdown">
+												<option selected="selected" disabled="disabled">IoT Hub Scinap2</option>
+												<option>IoT Hub Scinap</option>
+												<option>Create New Device</option>
+											</select>
+										</div>
 									</div>
-									<div class="col-xs-12 col-sm-12">
-										<div class="panel-box">
-											<div class="panel-head">
-												<h2>MQTT Broker</h2>
-											</div>
-											<div class="row">
-												<div class="col-md-6 col-sm-6 col-xs-12">
-													<div class="MQTT-Client-form">
-														<%= form_for @device.mqtt_broker, url: "/devices/#{@device.id}/connect", method: 'POST', html: {class: 'mqtt-form', id: 'mqtt_frm'} do |f| %>
-															<div class="form-group">
-																<div class="row">
-																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<%= f.text_field :host, class: 'form-control mqtt-pd', placeholder: "URL" %>
-																	</div>
-																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<%= f.text_field :port, class: 'form-control mqtt-pd', placeholder: "PORT" %>
-																	</div>
-																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<%= f.text_field :username, class: 'form-control mqtt-pd', placeholder: "User" %>
-																	</div>
-																	<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
-																		<%= f.password_field :password, class: 'form-control mqtt-pd', placeholder: "Password" %>
-																	</div>
-																</div>
+								</div>
+								<div class="col-xs-12 col-sm-12">
+									<div class="panel-box">
+										<div class="panel-head">
+											<h2>MQTT Broker</h2>
+										</div>
+										<div class="row">
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<div class="MQTT-Client-form">
+													<%= form_for @device.mqtt_broker, url: "/devices/#{@device.id}/connect", method: 'POST', html: {class: 'mqtt-form', id: 'mqtt_frm'} do |f| %>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
+																<%= f.text_field :host, class: 'form-control mqtt-pd', placeholder: "URL" %>
 															</div>
-															<input type=hidden id='conn_type' />
-															<% end %>
+															<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
+																<%= f.text_field :port, class: 'form-control mqtt-pd', placeholder: "PORT" %>
+															</div>
+															<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
+																<%= f.text_field :username, class: 'form-control mqtt-pd', placeholder: "User" %>
+															</div>
+															<div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
+																<%= f.password_field :password, class: 'form-control mqtt-pd', placeholder: "Password" %>
+															</div>
+														</div>
 													</div>
-												</div>
-												<div class="col-md-6 col-sm-6 col-xs-12">
-													<div class="row">
-													<div class="col-md-6">
-														<div class="buttons">
-															<div class="disconnnect-button dbtn">
+													<input type="hidden" id='conn_type'/>
+												<% end %>
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="buttons">
+														<div class="disconnnect-button dbtn">
 															<div class="desable-button">
 																<a href="#">
 																	<span class="c-btn-icn">
@@ -173,427 +191,460 @@
 																	<span class="c-btn-txt">disconnect</span>
 																</a>
 															</div>
-															</div>
-															<div class="connnect-button dbtn">
+														</div>
+														<div class="connnect-button dbtn">
 															<div class="desable-button">
 																<%= link_to '', onclick: "$('#mqtt_frm').submit()" do %>
-																	<span class="c-btn-icn"><img src="../assets/wifi-connect.png" alt="."> </span>
-																	<span class="c-btn-txt">connect</span>
-																<% end %>
+																<span class="c-btn-icn"><img src="../assets/wifi-connect.png" alt=".">
+																</span>
+																<span class="c-btn-txt">connect</span>
+															<% end %>
 
-															</div>
-															</div>
-														</div>
-
-													</div>
-													<div class="col-md-6">
-														<div class="status">
-															<h4 class="Status">Status</h4>
-															<div class="status-area roundscroll ">
-
-															</div>
-														</div>
-													</div>
-													</div>
-												</div>
-											</div>
-
-
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-12">
-										<div class="panel-box">
-											<div class="panel-head">
-											   <h2>Last Messages</h2>
-											</div>
-											<div class="row">
-												<div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
-													<h4>Sent (Publish)</h4>
-													<div class="Tempates-table">
-														<div class="device-detail-table">
-															<div class="table-responsive">
-																<table class="table table-striped fixed_headers three-column">
-																	<thead>
-																		<tr>
-																			<th>Topic </th>
-																			<th>Message </th>
-																			<th>Hours </th>
-
-																		</tr>
-																	</thead>
-																	<tbody style="height:100px;">
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																	</tbody>
-																</table>
-															</div>
 														</div>
 													</div>
 												</div>
-												<div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
-													<h4>Received (Subscription)</h4>
-													<div class="Tempates-table">
-														<div class="device-detail-table">
-															<div class="table-responsive">
-																<table class="table table-striped fixed_headers three-column">
-																	<thead>
-																		<tr>
-																			<th>Topic </th>
-																			<th>Message </th>
-																			<th>Hours </th>
 
-																		</tr>
-																	</thead>
-																	<tbody style="height:100px;">
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																		<tr>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																			<td>Lorem Ipsum</td>
-																		</tr>
-																	</tbody>
-																</table>
-															</div>
-														</div>
-													</div>
+											</div>
+											<div class="col-md-6">
+												<div class="status">
+													<h4 class="Status">
+														Status :
+														<% if @device.mqtt_broker.connected %>
+															Connected
+														<% else %>
+															Disconnected
+														<% end %>
+													</h4>
+													<div class="status-area roundscroll "></div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-
-						   </div>
-
-							<div role="tabpanel" class="tab-pane" id="management">
-								<div class="row">
-								    <div class="col-xs-12">
-										<div class="tabing-select">
-										   <div class="custom-dropdown select whtab">
-												 <%= select_tag 'device_id', options_for_select(@devices << ['Create New Device', '0']), {class: "form-control csdropdown", required: true, id: ''} %>
-										   </div>
-									   </div>
-									</div>
-									<div class="col-md-12 col-sm-12">
-										<div class="panel-box">
-											<div class="panel-head">
-												<h2>Import API JSON</h2>
-											</div>
-											<div class="dc-management-form">
-											  <%= form_for @device, html: {class: 'form-horizontal', multipart: true} do |f| %>
-												 <div class="form-group">
-													<div class="col-xs-12 col-sm-12 mb-xs-15">
-													   <div class="row">
-															<div class="col-xs-12 col-md-3 mb-xs-15">
-																<div class="custom-dropdown">
-																	<%= f.select :template_id, options_for_select(@templates), {class: "form-control", prompt: 'Select Template', required: true} %>
-																	</div>
-															</div>
-															<div class="col-xs-12 col-md-9 mb-xs-15">
-															    <div class="export-section">
-																    <div class="left-section">
-																	    <div class="file-upload">
-																		  <div class="file-select">
-																			<div class="file-select-name" id="noFile">JSON Name Here</div>
-						                          <%= f.file_field :api_json, id: "chooseFile" %>
-																			<div class="file-select-button" id="fileName">Browse</div>
-																		  </div>
-																		</div>
-																	</div>
-																    <div class="right-section">
-																			<%= f.button :submit, class: 'btn import-btn' do	%>
-																	      Import
-																			<% end %>
-																	</div>
-																</div>
-															</div>
-													   </div>
-													</div>
-												  </div>
-												<% end %>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-12 col-sm-12">
-										<div class="panel-box bottom">
-											<div class="panel-head">
-												<div class="row">
-													<div class="col-md-6 col-xs-12">
-														<h2>Corrent API</h2>
-														<div class="status-area roundscroll ">
-															<div class="text-in ">
-																<div class="lineone">
-																	<div class="text-orange"><p>aasyncapi:</p></div>
-																	<div class="text-green"><p>"1.0.0"</p></div>
-																</div>
-																<div class="text-orange"><p>info:</p></div>
-															</div>
-															<div class="text-in">
-																<div class="text-orange"><p>title:</p></div>
-
-																<p>AsyncAPI Sample</p>
-																<div class="text-orange"><p>version</p></div>
-															</div>
-															<div class="text-in">
-																<div class="text-orange"><p>x-logo:</p></div>
-																<p>https://avatars0.githubusercontent.com/u/16401334?v=4&s=200</p>
-																<div class="text-orange"><p>description:</p></div>
-
-																<p>|
-
-                                                                     This is a simple example of an _AsyncAPI_ document.
-																	</p>
-
-																<div class="text-orange"><p>termsOfService:</p></div>
-																<p>https://api.company.com/terms</p>
-															</div>
-															<div class="text-in">
-																<div class="text-orange"><p>description:</p></div>
-																<div class="text-green"><p>'hitch'</p></div>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-6 col-xs-12">
-														<div class="buttons">
-															<div class="connnect-button dbtn">
-																<a href="#" class="desable-button update">
-																	<span class="c-btn-icn">
-																		<img src="../assets/updaticon.png" alt="."> </span>
-																	<span class="c-btn-txt">UPDATE</span>
-																</a>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-6 col-xs-12">
-														<div class="content roundscroll">
-															<h3>Sinapse Energia</h3>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
-															<h5>Terms of service</h5>
-															<div class="text-green"><p>https://api.sinapeenrgia.com</p></div>
-															<h5>Connection details</h5>
-															<div class="table-responsive bottom-table">
-															<table class="table table-striped">
-																<thead>
-																	<tr>
-																		<th>URL </th>
-																		<th>Scheme </th>
-																		<th>Description </th>
-
-																	</tr>
-																</thead>
-																<tbody>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>Lorem ipsum dolor sit amet,</td>
-																		<td>Lorem</td>
-																		<td>
-																		    <span class="custom-dropdown ">
-																			    <select class="form-control">
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>Lorem ipsum dolor sit amet,</option>
-																					<option>SLorem ipsum dolor sit amet,</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																</tbody>
-
-															</table>
-														</div>
-
-
-
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
 
 							</div>
-						  </div>
+						</div>
+						<div class="col-xs-12 col-sm-12">
+							<div class="panel-box">
+								<div class="panel-head">
+									<h2>Last Messages</h2>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
+										<h4>Sent (Publish)</h4>
+										<div class="Tempates-table">
+											<div class="device-detail-table">
+												<div class="table-responsive">
+													<table class="table table-striped fixed_headers three-column">
+														<thead>
+															<tr>
+																<th>Topic
+																</th>
+																<th>Message
+																</th>
+																<th>Hours
+																</th>
+
+															</tr>
+														</thead>
+														<tbody style="height:100px;">
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
+										<h4>Received (Subscription)</h4>
+										<div class="Tempates-table">
+											<div class="device-detail-table">
+												<div class="table-responsive">
+													<table class="table table-striped fixed_headers three-column">
+														<thead>
+															<tr>
+																<th>Topic
+																</th>
+																<th>Message
+																</th>
+																<th>Hours
+																</th>
+
+															</tr>
+														</thead>
+														<tbody style="height:100px;">
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+															<tr>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+																<td>Lorem Ipsum</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-			   </div>
-		   </div>
+
+				</div>
+
+				<div role="tabpanel" class="tab-pane" id="management">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="tabing-select">
+								<div class="custom-dropdown select whtab">
+									<%= select_tag 'device_id', options_for_select(@devices << ['Create New Device', '0']), {class: "form-control csdropdown", required: true, id: ''} %>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="panel-box">
+								<div class="panel-head">
+									<h2>Import API JSON</h2>
+								</div>
+								<div class="dc-management-form">
+									<%= form_for @device, html: {class: 'form-horizontal', multipart: true} do |f| %>
+									<div class="form-group">
+										<div class="col-xs-12 col-sm-12 mb-xs-15">
+											<div class="row">
+												<div class="col-xs-12 col-md-3 mb-xs-15">
+													<div class="custom-dropdown">
+														<%= f.select :template_id, options_for_select(@templates), {class: "form-control", prompt: 'Select Template', required: true} %>
+													</div>
+												</div>
+												<div class="col-xs-12 col-md-9 mb-xs-15">
+													<div class="export-section">
+														<div class="left-section">
+															<div class="file-upload">
+																<div class="file-select">
+																	<div class="file-select-name" id="noFile">JSON Name Here</div>
+																	<%= f.file_field :api_json, id: "chooseFile" %>
+																	<div class="file-select-button" id="fileName">Browse</div>
+																</div>
+															</div>
+														</div>
+														<div class="right-section">
+															<%= f.button :submit, class: 'btn import-btn' do %>
+															Import
+														<% end %>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12 col-sm-12">
+					<div class="panel-box bottom">
+						<div class="panel-head">
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<h2>Corrent API</h2>
+									<div class="status-area roundscroll ">
+										<div class="text-in ">
+											<div class="lineone">
+												<div class="text-orange">
+													<p>aasyncapi:</p>
+												</div>
+												<div class="text-green">
+													<p>"1.0.0"</p>
+												</div>
+											</div>
+											<div class="text-orange">
+												<p>info:</p>
+											</div>
+										</div>
+										<div class="text-in">
+											<div class="text-orange">
+												<p>title:</p>
+											</div>
+
+											<p>AsyncAPI Sample</p>
+											<div class="text-orange">
+												<p>version</p>
+											</div>
+										</div>
+										<div class="text-in">
+											<div class="text-orange">
+												<p>x-logo:</p>
+											</div>
+											<p>https://avatars0.githubusercontent.com/u/16401334?v=4&s=200</p>
+											<div class="text-orange">
+												<p>description:</p>
+											</div>
+
+											<p>| This is a simple example of an _AsyncAPI_ document.
+											</p>
+
+											<div class="text-orange">
+												<p>termsOfService:</p>
+											</div>
+											<p>https://api.company.com/terms</p>
+										</div>
+										<div class="text-in">
+											<div class="text-orange">
+												<p>description:</p>
+											</div>
+											<div class="text-green">
+												<p>'hitch'</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<div class="buttons">
+										<div class="connnect-button dbtn">
+											<a href="#" class="desable-button update">
+												<span class="c-btn-icn">
+													<img src="../assets/updaticon.png" alt=".">
+												</span>
+												<span class="c-btn-txt">UPDATE</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<div class="content roundscroll">
+										<h3>Sinapse Energia</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+										</p>
+										<h5>Terms of service</h5>
+										<div class="text-green">
+											<p>https://api.sinapeenrgia.com</p>
+										</div>
+										<h5>Connection details</h5>
+										<div class="table-responsive bottom-table">
+											<table class="table table-striped">
+												<thead>
+													<tr>
+														<th>URL
+														</th>
+														<th>Scheme
+														</th>
+														<th>Description
+														</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td>Lorem ipsum dolor sit amet,</td>
+														<td>Lorem</td>
+														<td>
+															<span class="custom-dropdown ">
+																<select class="form-control">
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>Lorem ipsum dolor sit amet,</option>
+																	<option>SLorem ipsum dolor sit amet,</option>
+																</select>
+															</span>
+														</td>
+													</tr>
+												</tbody>
+
+											</table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
-	    <div class="clear"></div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
 
 <script type="text/jscript">
-function connect_mqtt(){
-		$('#conn_type').val('connect');
-		$('#mqtt_frm').submit();
+function connect_mqtt() {
+$('#conn_type').val('connect');
+$('#mqtt_frm').submit();
 }
 </script>

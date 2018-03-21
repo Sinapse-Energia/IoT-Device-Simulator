@@ -1,3 +1,4 @@
+require 'mqtt'
 class DevicesController < ApplicationController
   def index
     fetch_data
@@ -30,13 +31,11 @@ class DevicesController < ApplicationController
   # MQTT operations
   def connect
     update_mqtt_details
-    client = mqtt_client
-
-    client.connect
+    client = connect_mqtt_client
 
     if client.connected?
       @device.mqtt_broker.update(connected: true)
-      redirect_to root_path
+      redirect_to '/'
     end
   end
 
@@ -49,15 +48,26 @@ class DevicesController < ApplicationController
   def fetch_data
     @devices = Device.all.map.map{|d| [d.name, d.id] }
     @device = Device.find(params[:device_id] || @devices.first.last)
+    @api_json = @device.api_json
     @templates = Template.all.map{|t| [t.name, t.id] }
   end
 
-  def mqtt_client
-    MQTT::Client.new(host: params[:mqtt_broker][:host],
-       port: params[:mqtt_broker][:port],
-       username: params[:mqtt_broker][:user],
-       password: params[:mqtt_broker][:password]
-    )
+  def connect_mqtt_client
+    connection_params = {
+      host: params[:mqtt_broker][:host],
+      port: params[:mqtt_broaker][:port],
+      client_id: MQTT::Client.generate_client_id
+    }
+
+    username = params[:mqtt_broker][:username]
+    password = params[:mqtt_broker][:password]
+
+    connection_params.merge!(
+      username: username,
+      password: password
+    ) if username != '' && password != ''
+
+    MQTT::Client.connect(connection_params)
   end
 
   def update_mqtt_details
