@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :templates
   resources :devices do
     member do
+      get :get_device
       post :connect
       post :disconnect
     end

@@ -103,7 +103,7 @@ h4.Status{border-bottom:0; padding-bottom:0;}
 #management .bottom .status-area{float: left; width: 100%; background-color: #efefef;height: 213px; border-radius: 5px;}
 #management .bottom .status-area .text-in{float: left; width: 100%; font-size:12px;}
 #management .bottom .text-in .lineone{float: left; width: 100%; }
-#management .status-area .text-in:nth-child(2), #management .status-area .text-in:nth-child(3)  { padding-left:10px;}
+/*#management .status-area .text-in:nth-child(2), #management .status-area .text-in:nth-child(3)  { padding-left:10px;}*/
 #management .content{ width:100%; float:left; height:213px; }
 #management .content h3{font-size:20px; margin-top:0;  font-family: 'helvetica_neue_lt_std65Md';}
 #management .content p{font-size:12px; font-family: 'helvetica_neue_lt_std55_roman'; }

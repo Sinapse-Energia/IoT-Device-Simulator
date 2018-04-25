@@ -1,0 +1,77 @@
+<div class="row">
+
+  <div class="col-xs-12 col-sm-6 p-r-10">
+    <div class="panel-box">
+      <div class="panel-head">
+        <h2>IOT Hub Scinap</h2>
+      </div>
+      <div class="panner-in p-one">
+        <div class="text-center">
+          <img src="../assets/template-1.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 p-l-10">
+    <div class="panel-box">
+      <div class="panel-head">
+        <h2>Resume</h2>
+      </div>
+      <div class="resume-detail roundscroll">
+        <ul>
+          <li><label>Title :</label><%= device.api_json&.dig('BaseBoard', 'Name') %></li>
+          <li><label>Version :</label><%= device.api_json&.dig('BaseBoard', 'HW Version') %></li>
+          <li><label>Connection Status :</label><%= device.mqtt_broker.connected? ? 'Connected' : 'Not connected' %></li>
+          <li><label>Description :</label><%= device.api_json&.dig('BaseBoard', 'Description') %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 p-r-10">
+    <div class="panel-box p-three">
+      <div class="panel-head">
+        <h2>API Commands</h2>
+      </div>
+      <div class="command-detail roundscroll">
+        <ul>
+          <li>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+            <p>It is a long established fact that a reader </p>
+          </li>
+          <li>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+            <p>It is a long established fact that a reader </p>
+          </li>
+          <li>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+            <p>It is a long established fact that a reader </p>
+          </li>
+          <li>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+            <p>It is a long established fact that a reader </p>
+          </li>
+          <li>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h3>
+            <p>It is a long established fact that a reader </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 p-l-10">
+    <div class="panel-box p-three mb-15">
+      <div class="panel-head ">
+        <h2>Interfaces</h2>
+      </div>
+      <div class="interface-detail roundscroll">
+        <ul>
+          <% unless device.interfaces.blank? %>
+              <% device.interfaces.each do |interface| %>
+                  <li><%= interface %></li>
+              <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,210 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="panel-box">
+      <div class="panel-head">
+        <h2>Import API JSON</h2>
+      </div>
+      <div class="dc-management-form">
+        <%= form_for device, html: {class: 'form-horizontal', multipart: true} do |f| %>
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-12 mb-xs-15">
+              <div class="row">
+                <div class="col-xs-12 col-md-3 mb-xs-15">
+                  <div class="custom-dropdown">
+                    <%= f.select :template_id, options_for_select(templates), {class: "form-control", prompt: 'Select Template', required: true} %>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-9 mb-xs-15">
+                  <div class="export-section">
+                    <div class="left-section">
+                      <div class="file-upload">
+                        <div class="file-select">
+                          <div class="file-select-name" id="noFile">JSON Name Here</div>
+                          <%= f.file_field :api_json, id: "chooseFile" %>
+                          <div class="file-select-button" id="fileName">Browse</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="right-section">
+                      <%= f.button :submit, class: 'btn import-btn' do %>
+                        Import
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 col-sm-12">
+  <div class="panel-box bottom">
+    <div class="panel-head">
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <h2>Corrent API</h2>
+          <div class="status-area roundscroll ">
+            <% if device.api_json.present? %>
+              <%= render partial: 'devices/show_api_data', collection: device.api_json, as:  :api_json %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="buttons">
+            <div class="connnect-button dbtn">
+              <a href="#" class="desable-button update">
+                <span class="c-btn-icn">
+                    <img src="../assets/updaticon.png" alt=".">
+                </span>
+                <span class="c-btn-txt">UPDATE</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="content roundscroll">
+            <h3>Sinapse Energia</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            </p>
+            <h5>Terms of service</h5>
+            <div class="text-green">
+              <p>https://api.sinapeenrgia.com</p>
+            </div>
+            <h5>Connection details</h5>
+            <div class="table-responsive bottom-table">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>URL
+                  </th>
+                  <th>Scheme
+                  </th>
+                  <th>Description
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet,</td>
+                  <td>Lorem</td>
+                  <td>
+                    <span class="custom-dropdown ">
+                      <select class="form-control">
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>Lorem ipsum dolor sit amet,</option>
+                        <option>SLorem ipsum dolor sit amet,</option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

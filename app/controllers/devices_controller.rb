@@ -5,7 +5,7 @@ class DevicesController < ApplicationController
   end
 
   def new
-    @device = Device.new
+    @device = params[:id].present? ? Device.find_by(id: params[:id]) : Device.new
     @devices = Device.all
     @templates = Template.all.map{|t| [t.name, t.id] }
   end
@@ -22,21 +22,46 @@ class DevicesController < ApplicationController
 
   def update
     @device = Device.find(params[:id])
-    file = params[:device][:api_json].read
-    data = JSON.parse(file)
-    @device.update(api_json: data, template_id: params[:device][:template_id])
+    if params[:device][:api_json].present?
+      # For device management when upload json
+      file = params[:device][:api_json].read
+      data = JSON.parse(file)
+      @device.update(api_json: data, template_id: params[:device][:template_id])
+    else
+      # Normal device updation
+      @device.update(device_params)
+    end
     redirect_to root_path
   end
 
-  # MQTT operations
+  # MQTT device connect operations
   def connect
-    update_mqtt_details
     client = connect_mqtt_client
 
     if client.connected?
+      update_mqtt_details
       @device.mqtt_broker.update(connected: true)
       redirect_to '/'
     end
+  end
+
+  # MQTT device disconnect operations
+  def disconnect
+    client = connect_mqtt_client
+
+    if client.connected?
+      client.disconnect()
+
+      @device = Device.find(params[:id])
+      @device.mqtt_broker.update(connected: false)
+      redirect_to root_url
+    end
+  end
+
+  def get_device
+    @device = Device.find_by(id: params[:id])
+    @templates = Template.pluck(:name, :id)
+    render partial: 'device_tabs', locals: {device: @device, templates: @templates}
   end
 
   private
@@ -46,16 +71,15 @@ class DevicesController < ApplicationController
   end
 
   def fetch_data
-    @devices = Device.all.map.map{|d| [d.name, d.id] }
-    @device = Device.find(params[:device_id] || @devices.first.last)
-    @api_json = @device.api_json
+    @devices = Device.all.map{|d| [d.name, d.id] }
+    @device = Device.find_by(id: @devices.first.last)
     @templates = Template.all.map{|t| [t.name, t.id] }
   end
 
   def connect_mqtt_client
     connection_params = {
       host: params[:mqtt_broker][:host],
-      port: params[:mqtt_broaker][:port],
+      port: params[:mqtt_broker][:port],
       client_id: MQTT::Client.generate_client_id
     }
 
