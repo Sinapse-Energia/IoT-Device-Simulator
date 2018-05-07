@@ -1,0 +1,4 @@
+clear_leaderboards_moderator:
+  class: "DeviceCommunicationSyncJob"
+  queue: device_communication_sync
+  description: "message set"

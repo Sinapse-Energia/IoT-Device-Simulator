@@ -34,7 +34,7 @@
               <div class="buttons">
                 <div class="disconnnect-button dbtn">
                   <div class="desable-button">
-                    <%= link_to '', onclick: "disconnectMqttDevice('#{device.id}')" do %>
+                    <%= link_to '', onclick: "connectMqtt_device($(this))", 'data-id' => device.id, remote: true do %>
                       <span class="c-btn-icn">
                         <img src="../assets/wifi-disconnect.png" alt="...">
                       </span>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="connnect-button dbtn">
                   <div class="desable-button">
-                    <%= link_to '', onclick: "$('#mqtt_frm').submit()" do %>
+                    <%= link_to '', onclick: "connectMqtt_device($(this))", 'data-id' => device.id, remote: true do %>
                       <span class="c-btn-icn"><img src="../assets/wifi-connect.png" alt=".">
                       </span>
                       <span class="c-btn-txt">connect</span>
@@ -58,7 +58,7 @@
               <div class="status">
                 <div class="status-area status-center">
                   <h2>
-                    <% if @device.mqtt_broker.connected %>
+                    <% if device.mqtt_broker.connected %>
                       Connected
                     <% else %>
                       Disconnected
@@ -73,132 +73,5 @@
     </div>
   </div>
 </div>
-<div class="col-xs-12 col-sm-12">
-  <div class="panel-box">
-    <div class="panel-head">
-      <h2>Last Messages</h2>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
-        <h4>Sent (Publish)</h4>
-        <div class="Tempates-table">
-          <div class="device-detail-table">
-            <div class="table-responsive">
-              <table class="table table-striped fixed_headers three-column">
-                <thead>
-                  <tr>
-                    <th>Topic</th>
-                    <th>Message</th>
-                    <th>Hours</th>
-                  </tr>
-                </thead>
-                <tbody style="height:100px;">
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
-        <h4>Received (Subscription)</h4>
-        <div class="Tempates-table">
-          <div class="device-detail-table">
-            <div class="table-responsive">
-              <table class="table table-striped fixed_headers three-column">
-                <thead>
-                <tr>
-                  <th>Topic</th>
-                  <th>Message</th>
-                  <th>Hours</th>
-                </tr>
-                </thead>
-                <tbody style="height:100px;">
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-                <tr>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                  <td>Lorem Ipsum</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
+<%= render partial: 'devices/device_message', locals: {device: @device, message: @message, topic: @topic} %>
+

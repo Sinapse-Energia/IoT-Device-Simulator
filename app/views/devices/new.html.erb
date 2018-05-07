@@ -19,68 +19,34 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-12">
-        <div class="panel-box">
-          <div class="panel-head">
-            <h2>Create Device</h2>
-          </div>
-          <div class="dc-management-form">
-            <%= form_for(@device, html: {class: 'form-horizontal'}) do |f| %>
-              <div class="form-group">
-                <div class="col-xs-12 col-sm-6 mb-xs-15">
-                  <div class="row">
-                    <div class="col-xs-12 mb-15">
-                      <%= f.text_field :name, class: 'form-control', placeholder: 'Device Name Here', required: true %>
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="custom-dropdown dm">
-                        <%= f.select(:template_id, options_for_select(@templates), {prompt: 'Select Template'}, {class: "form-control", required: true}) %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <%= f.text_area :interfaces_peripherals, class: 'form-control roundscroll', placeholder: "Interfaces and Peripherals", required: true %>
-                    </div>
-                   </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-xs-12 text-center">
-                    <%= f.hidden_field :user_id, value: current_user.id %>
-                  <button type="submit" class="btn submit-btn-green">Submit</button>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-12">
-        <div class="panel-box">
-          <div class="panel-head">
-            <h2>Devices</h2>
-          </div>
-          <div class="device-detail-table">
-            <div class="table-responsive">
-              <table class="table table-striped fixed_headers three-column">
-                <thead>
-                  <tr>
-                    <th>Device Name</th>
-                    <th>Template Name</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody style="height:175px;">
-                  <% @devices.each do |device| %>
+        <%= render partial: 'devices/device_form', locals: {device: @device} %>
+
+        <div class="col-xs-12 col-sm-12">
+          <div class="panel-box">
+            <div class="panel-head">
+              <h2>Devices</h2>
+            </div>
+            <div class="device-detail-table">
+              <div class="table-responsive">
+                <table class="table table-striped fixed_headers three-column">
+                  <thead>
                     <tr>
-                      <td><%= device.name %></td>
-                      <td><%= device.template.name %></td>
-                      <td><a href><img src="../assets/edit-icon.svg" alt="edit"></a></td>
+                      <th>Device Name</th>
+                      <th>Tempate Name</th>
+                      <th></th>
                     </tr>
-                  <% end %>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody style="height:175px;">
+                    <% @devices.each do |device| %>
+                      <tr>
+                        <td><%= device.name %></td>
+                        <td><%= device.template.name %></td>
+                        <td><%= link_to image_tag('edit-icon.svg'), edit_device_path(id: device.id) %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -90,3 +56,8 @@
 </div>
 <div class="clear"></div>
 
+<script>
+  $('#device_image').change(function(event) {
+      $('#displayImage').attr('src',URL.createObjectURL(event.target.files[0]));
+  })
+</script>

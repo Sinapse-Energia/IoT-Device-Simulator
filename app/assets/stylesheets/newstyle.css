@@ -36,9 +36,9 @@ button.button-create.device span{display:table-cell; vertical-align:middle;}
 
 }
 @media(max-width:767px){
-.help-content h2, .help-content .paragrapg{padding-bottom:30px;}
-.buttonpnnl{float:none; text-align:center;}
-button.button-create.device{float:none; margin:0 auto;}
+  .help-content h2, .help-content .paragrapg{padding-bottom:30px;}
+  .buttonpnnl{float:none; text-align:center;}
+  button.button-create.device{float:none; margin:0 auto;}
 }
 
         /***********************************************
@@ -84,7 +84,7 @@ h4.Status{border-bottom:0; padding-bottom:0;}
 #management .form-group select:before{content:"";  background: url(../assets/select-arrow.svg) no-repeat; position:absolute;}
 #management .panel-box .buttons{padding-top:20px;}
 #management .panel-box .buttons .dbtn, #management .panel-box .buttons .disconnnect-button{width:auto;}
-#management .panel-box .buttons .connnect-button .{margin: 0 auto; width:140px;}
+#management .panel-box .buttons .connnect-button {margin: 0 auto; width:140px;}
 #management .panel-box .buttons .disconnnect-button a{width:140px;}
 #management .bottom .buttons .connnect-button {width:106px;}
 #management .panel-box .buttons .connnect-button{margin-left:30px;}
@@ -156,23 +156,23 @@ display: none;}
 }
 
 @media(max-width:480px){
-.form-horizontal .dbtn{float:left; width:100% !important;}
-#management .panel-box .buttons .connnect-button{margin-left:0; }
-#management .panel-box .buttons .disconnnect-button {padding-bottom:25px;}
+  .form-horizontal .dbtn{float:left; width:100% !important;}
+  #management .panel-box .buttons .connnect-button{margin-left:0; }
+  #management .panel-box .buttons .disconnnect-button {padding-bottom:25px;}
 }
 @media(max-width:767px){
-input.form-control.mqtt-pd{padding-bottom:0;}
-.panel-box .buttons{padding-top:0;}
-#management .bottom .buttons{width:100%;}
-#management .bottom .buttons .dbtn{float:none;}
-.panel-box .buttons .connnect-button a{    margin: 25px auto 0 auto;}
-.panel-box .status {margin-top:30px;}
-.form-horizontal .form-group{margin-bottom:0;}
-.panel-box .buttons .connnect-button .desable-button a{margin-top:30px;}
+  input.form-control.mqtt-pd{padding-bottom:0;}
+  .panel-box .buttons{padding-top:0;}
+  #management .bottom .buttons{width:100%;}
+  #management .bottom .buttons .dbtn{float:none;}
+  .panel-box .buttons .connnect-button a{margin: 25px auto 0 auto;}
+  .panel-box .status {margin-top:30px;}
+  .form-horizontal .form-group{margin-bottom:0;}
+  .panel-box .buttons .connnect-button .desable-button a{margin-top:30px;}
 }
 @media(max-width:991px){
-.panel-box .Tempates-table{padding:20px 0; height:215px;}
-#management .bottom .buttons{padding-top:25px;}
+  .panel-box .Tempates-table{padding:20px 0; height:215px;}
+  #management .bottom .buttons{padding-top:25px;}
 }
 
 

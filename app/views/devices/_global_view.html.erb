@@ -3,11 +3,11 @@
   <div class="col-xs-12 col-sm-6 p-r-10">
     <div class="panel-box">
       <div class="panel-head">
-        <h2>IOT Hub Scinap</h2>
+        <h2><%= device.name.titlecase %></h2>
       </div>
       <div class="panner-in p-one">
         <div class="text-center">
-          <img src="../assets/template-1.png">
+          <%= image_tag(device.image, class: 'device-display-image') %>
         </div>
       </div>
     </div>
@@ -19,10 +19,10 @@
       </div>
       <div class="resume-detail roundscroll">
         <ul>
-          <li><label>Title :</label><%= device.api_json&.dig('BaseBoard', 'Name') %></li>
-          <li><label>Version :</label><%= device.api_json&.dig('BaseBoard', 'HW Version') %></li>
+          <li><label>Title :</label><%= device.api_json&.dig('info', 'title') %></li>
+          <li><label>Version :</label><%= device.api_json&.dig('info', 'version') %></li>
           <li><label>Connection Status :</label><%= device.mqtt_broker.connected? ? 'Connected' : 'Not connected' %></li>
-          <li><label>Description :</label><%= device.api_json&.dig('BaseBoard', 'Description') %></li>
+          <li><label>Description :</label><%= device.api_json&.dig('info', 'description') %></li>
         </ul>
       </div>
     </div>

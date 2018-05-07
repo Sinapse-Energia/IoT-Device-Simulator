@@ -1,86 +1,33 @@
 <div class="top-panel">
-		   <div class="container-fluid">
-		      <div class="row">
-			      <div class="col-xs-12 col-sm-6">
-				      <div class="page-title">Templates</div>
-				  </div>
-				  <div class="col-xs-12 col-sm-6">
-				      <div class="page-breadcrumbs">
-					     <ul>
-						    <li><a href="#">Templates</a></li>
-						 </ul>
-					  </div>
-				  </div>
-			  </div>
-		   </div>
-		</div>
-		<div class="middle-container">
-		   <div class="tab-section">
-		       <div class="container-fluid">
-			       <div class="row">
-				      <div class="col-xs-12">
-					      <div class="custom-dropdown select whtab">
-							   <select class="form-control csdropdown" onchange="if(this.value==1) { window.location='/templates/new';}">
-								  <option selected disabled>Select Template</option>
-								  <option>Template-1</option>
-								  <option value="1">Create New Template</option>
-								</select>
-						   </div>
-					  </div>
-				   </div>
-			   </div>
-			</div>
-		   <div class="container-fluid">
-		        <div class="row">
-				    <div class="col-xs-12 col-sm-6 p-r-10">
-					    <div class="panel-box my-panel fix-box">
-						    <div class="panel-head">
-									<h2>Templates of IOT Sinapse Devices</h2>
-								</div>
-							 <div class="panner-in p-one">
-								<div class="text-center">
-									<img src="../assets/template-1.png">
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 p-l-10">
-					    <div class="panel-box my-panel fix-box">
-						    <div class="panel-head">
-								<h2>Overview</h2>
-							</div>
-						    <div class="overview-container roundscroll">
-								<div class="panner-in p-two ">
-									<h3>Lorem Ipsum is simply dummy text</h3>
-									<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-					    <div class="panel-box p-three ">
-						     <div class="panel-head">
-								<h2>Description</h2>
-							 </div>
-						    <div class="discription-container roundscroll">
-								 <div class="panner-in ">
-									<P>Description of the generic device</P>
-									<P>Features</P>
-									<P>Availabel APIs</P>
-									<P>Others</P>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="buttonpnnl">
-							<button class="button-create device" onclick="window.location='devices/new';">create device
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	    <div class="clear"></div>
+   <div class="container-fluid">
+      <div class="row">
+          <div class="col-xs-12 col-sm-6">
+              <div class="page-title">Templates</div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+              <div class="page-breadcrumbs">
+                 <ul>
+                    <li><a href="#">Templates</a></li>
+                 </ul>
+              </div>
+          </div>
+      </div>
+   </div>
+</div>
+<div class="middle-container">
+  <div class="tab-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="custom-dropdown select whtab">
+            <%= templates_dropdown  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="template-index">
+    <%= render partial: 'templates/index', locals: {template: @template} %>
+  </div>
+</div>
+<div class="clear"></div>

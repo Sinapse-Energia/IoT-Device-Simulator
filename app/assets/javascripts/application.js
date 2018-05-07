@@ -12,8 +12,8 @@
 //
 //= require jquery.min
 //= require rails-ujs
+//= require cable
 //= require turbolinks
-
 //= require bootstrap.min
 //= require jquery.dd.min
 //= require jquery.mCustomScrollbar.concat.min

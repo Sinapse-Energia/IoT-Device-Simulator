@@ -1,3 +1,4 @@
+<div class="alert-success device-alert-message"></div>
 <div class="top-panel" id="device-index">
   <div class="container-fluid">
     <div class="row">
@@ -25,9 +26,9 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <% tab_list.each_with_index do|(ref, text), index| %>
-                <li role="presentation" class="<%= index.eql?(0) ? 'active' : '' %> js-device-li">
-                  <%= link_to text, '#' + ref, 'aria-controls' => ref, role: 'tab', 'data-toggle' => 'tab', class: 'js-device-tab' %>
-                </li>
+              <li role="presentation" class="<%= index.eql?(0) ? 'active' : '' %> js-device-li">
+                <%= link_to text, '#' + ref, 'aria-controls' => ref, role: 'tab', 'data-toggle' => 'tab', class: 'js-device-tab' %>
+              </li>
             <% end %>
           </ul>
           <div class="col-xs-12">
@@ -39,7 +40,7 @@
           </div>
           <!-- Tab panes -->
           <div class="tab-content" id="deviceTabs">
-            <%= render partial: 'device_tabs', locals: {device: @device, templates: @templates} %>
+            <%= render partial: 'device_tabs', locals: {device: @device, templates: @templates, message: @message, topic: @topic} %>
           </div>
         </div>
       </div>

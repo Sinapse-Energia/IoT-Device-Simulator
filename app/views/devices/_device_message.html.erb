@@ -1,0 +1,69 @@
+<div class="col-xs-12 col-sm-12">
+  <div class="panel-box">
+    <div class="panel-head">
+      <h2>Last Messages</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
+        <h4>Sent (Publish)</h4>
+        <div class="Tempates-table">
+          <div class="device-detail-table">
+            <div class="table-responsive">
+              <table class="table table-striped fixed_headers three-column">
+                <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Message</th>
+                  <th>Hours</th>
+                </tr>
+                </thead>
+                <tbody style="height:100px;">
+                  <% if device.mqtt_broker.connected %>
+                    <tr>
+                      <td><%= topic %></td>
+                      <td><%= message %></td>
+                      <td><%= Time.now.strftime('%d-%m-%Y %H:%M:%S') %></td>
+                    </tr>
+                  <% else %>
+                    <tr style="text-align: center;">
+                      <td>Device is disconnected</td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-lg-6 col-md-6 col-sm-12">
+        <h4>Received (Subscription)</h4>
+        <div class="Tempates-table">
+          <div class="device-detail-table">
+            <div class="table-responsive">
+              <table class="table table-striped fixed_headers three-column">
+                <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Message</th>
+                  <th>Hours</th>
+                </tr>
+                </thead>
+                <% if device.mqtt_broker.connected %>
+                  <tbody style="height:100px;" id="subscribe-table-body">
+                    <%= render partial: '/devices/subscriptions/row' %>
+                  </tbody>
+                <% else %>
+                  <tbody style="height:100px;">
+                    <tr style="text-align:  center;">
+                      <td>Device is disconnected</td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
