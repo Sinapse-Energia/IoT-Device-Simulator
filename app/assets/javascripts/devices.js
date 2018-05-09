@@ -1,5 +1,7 @@
 //require channels
 
+var initiated = false;
+
 function selected_device(event) {
   var device_id = event.val();
   if(device_id == "0"){
@@ -34,18 +36,10 @@ function connectMqtt_device(event){
         $('.alert-success').delay(3000).fadeOut(1000);
       }, 3000);
       if(method == 'connect'){
-        channel_params = {};
-        $.each(params, function(index, value) {
-          if(index > 1){
-            var name = value['name'].split('[');
-            name = name[1].split(']')[0];
-            channel_params[name] = value['value']
-          }
-        });
-        channel_params['client_id'] = data['client_id'];
-        device_message(device_id, data['topic'], channel_params);
+        device_connect(params);
       }else if(method == 'disconnect'){
         $('#subscribe-table-body').html('');
+          demolish_connection();
       }
 
     }
@@ -62,8 +56,26 @@ function device_tabs(data) {
   $(".roundscroll").mCustomScrollbar({theme: "rounded"});
 }
 
+function device_connect(params) {
+  channel_params = {};
+  $.each(params, function(index, value) {
+    if(index > 1){
+      var name = value['name'].split('[');
+      name = name[1].split(']')[0];
+      channel_params[name] = value['value']
+    }
+  });
+  var device_id = $('.device-connect').data('id');
+  device_message(device_id, channel_params);
+}
+
 $(document).on('turbolinks:load', function() {
   $.mCustomScrollbar.defaults.scrollButtons.enable = true;
   $.mCustomScrollbar.defaults.axis = "yx";
   $(".roundscroll").mCustomScrollbar({theme: "rounded"});
+  var status = $('.status .status-area').text().replace(/\s/g, '');
+  if (status == 'Connected'){
+    var params = $('#mqtt_frm').serializeArray();
+    device_connect(params);
+  }
 });

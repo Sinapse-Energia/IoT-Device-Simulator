@@ -13,4 +13,16 @@ class Device < ApplicationRecord
   def interfaces
     self.interfaces_peripherals.try(:split, "\r\n")
   end
+
+  def topic
+    api_json&.dig('baseTopic')&.split('.')&.push('DEBUG')&.join('/')
+  end
+
+  def client_id
+    if (api_json && api_json.dig('baseTopic')).present?
+      api_json&.dig('baseTopic')&.split('.')[0]
+    else
+      nil
+    end
+  end
 end

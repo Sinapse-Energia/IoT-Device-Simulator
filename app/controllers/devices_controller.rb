@@ -43,34 +43,39 @@ class DevicesController < ApplicationController
   # MQTT device connect operations
   def connect
     begin
-      if @device.mqtt_broker.connected == true
-        render :json => {
-                   message: 'Device already connected.',
-               }
-      else
+      if @device.api_json.present?
+        if @device.mqtt_broker.connected == true
+          render :json => {
+                   message: 'Device already connected.'
+                 }
+        elsif
         @client = connect_mqtt_client
 
-        # mqtt client publish and subscribe message
-        @message = "Test message published at #{Time.now.strftime('%d-%m-%Y %H:%M:%S')}"
-        @topic = 'TEST_VERVE.IOT'
-        @client.publish(@topic, @message, retain= true)
-        @client.subscribe(@topic)
+          # mqtt client publish and subscribe message
+          @message = "Test message published at #{Time.now.strftime('%d-%m-%Y %H:%M:%S')}"
+          @topic = @device.topic
+          @client.publish(@topic, @message, retain= true)
+          @client.subscribe(@topic)
 
-        @templates = Template.pluck(:name, :id)
-        if @client.connected?
-          update_mqtt_details
-          @device.mqtt_broker.update(connected: true)
-          @device_tabs = render_to_string partial: 'devices/device_tabs',
-                                          formats: :html,
-                                          :locals => {device: @device, templates: @templates, message: @message, topic: @topic}
-          render :json => {
-                   :attachmentPartial => @device_tabs,
-                   message: 'Device connected successfully.',
-                   client_id: @client.client_id,
-                   topic: @topic
-                 }
+          @templates = Template.pluck(:name, :id)
+          if @client.connected?
+            update_mqtt_details
+            @device.mqtt_broker.update(connected: true)
+            @device_tabs = render_to_string partial: 'devices/device_tabs',
+                                            formats: :html,
+                                            :locals => {device: @device, templates: @templates, message: @message, topic: @topic}
+            render :json => {
+                     :attachmentPartial => @device_tabs,
+                     message: 'Device connected successfully.'
+                   }
+          end
         end
+      else
+        render :json => {
+                 message: 'You didn\'t uploaded api_json, please upload it first'
+               }
       end
+
     rescue MQTT::ProtocolException => mqtt_error
       render :json => {message: mqtt_error.message}
     rescue Exception => e
@@ -86,14 +91,26 @@ class DevicesController < ApplicationController
                    message: 'Device already disconnected.',
                }
       else
+        # device = Devices::ConnectService.new(params.dig(:mqtt_broker)).connect
         client = connect_mqtt_client
         @templates = Template.pluck(:name, :id)
         if client.connected?
           client.disconnect()
           @device.mqtt_broker.update(connected: false)
-          Resque.remove_delayed(DeviceCommunicationSyncJob, :device_id => @device.id)
-          @device_tabs = render_to_string partial: 'devices/device_tabs',formats: :html, :locals => {device: @device, templates: @templates}
-          render :json => { :attachmentPartial => @device_tabs, message: 'Device disconnected successfully.'}
+          @device_tabs = render_to_string partial: 'devices/device_tabs',
+                                          formats: :html,
+                                          :locals => {
+                                            device: @device,
+                                            templates: @templates
+                                          }
+
+          # Stop Thread
+          Devices::CommunicationService.new(params.dig(:id), client, @device.topic).shutdown
+
+          render :json => {
+              :attachmentPartial => @device_tabs,
+              message: 'Device disconnected successfully.'
+          }
         end
       end
     rescue MQTT::ProtocolException => mqtt_error
@@ -106,9 +123,10 @@ class DevicesController < ApplicationController
   def get_device
     @templates = Template.pluck(:name, :id)
     @message = "Test message published at #{Time.now.strftime('%d-%m-%Y %H:%M:%S')}"
-    @topic = 'TEST_VERVE.IOT'
+    @topic = @device.topic
     render partial: 'device_tabs', locals: {device: @device, templates: @templates, message: @message, topic: @topic}
   end
+
 
   private
 
@@ -125,7 +143,7 @@ class DevicesController < ApplicationController
     @device = Device.find_by(id: @devices.first.last) rescue nil
     @templates = Template.all.map{|t| [t.name, t.id] }
     @message = "Test message published at #{Time.now.strftime('%d-%m-%Y %H:%M:%S')}"
-    @topic = 'TEST_VERVE.IOT'
+    @topic = @device.topic
   end
 
   def connect_mqtt_client
@@ -135,12 +153,7 @@ class DevicesController < ApplicationController
     username = params[:mqtt_broker][:username]
     password = params[:mqtt_broker][:password]
 
-    if mqtt_broker.host == host && mqtt_broker.port == port && mqtt_broker.client_id.nil?
-      client_id = MQTT::Client.generate_client_id
-      mqtt_broker.update_column(:client_id, client_id)
-    else
-      client_id = mqtt_broker.client_id
-    end
+    client_id = @device.client_id
     connection_params = {
       host: host,
       port: port,

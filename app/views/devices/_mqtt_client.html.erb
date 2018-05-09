@@ -8,6 +8,8 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="MQTT-Client-form">
             <%= form_for device.mqtt_broker, url: "/devices/#{device.id}/connect", method: 'POST', html: {class: 'mqtt-form', id: 'mqtt_frm'} do |f| %>
+              <%= hidden_field_tag "mqtt_broker[client_id]", device.client_id %>
+              <%= hidden_field_tag "mqtt_broker[topic]", device.topic %>
               <div class="form-group">
                 <div class="row">
                   <div class="col-lg-6 col-md-12 col-sm-12 mb-xs-15">
@@ -44,7 +46,7 @@
                 </div>
                 <div class="connnect-button dbtn">
                   <div class="desable-button">
-                    <%= link_to '', onclick: "connectMqtt_device($(this))", 'data-id' => device.id, remote: true do %>
+                    <%= link_to '', onclick: "connectMqtt_device($(this))", class: 'device-connect', 'data-id' => device.id, remote: true do %>
                       <span class="c-btn-icn"><img src="../assets/wifi-connect.png" alt=".">
                       </span>
                       <span class="c-btn-txt">connect</span>
