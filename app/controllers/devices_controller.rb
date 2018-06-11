@@ -143,7 +143,11 @@ class DevicesController < ApplicationController
     @device = Device.find_by(id: @devices.first.last) rescue nil
     @templates = Template.all.map{|t| [t.name, t.id] }
     @message = "Test message published at #{Time.now.strftime('%d-%m-%Y %H:%M:%S')}"
-    @topic = @device.topic
+    if !@device.nil?
+    	@topic = @device.topic
+    else
+        @topic = "DEFAULT_TOPIC"
+    end
   end
 
   def connect_mqtt_client
