@@ -45,13 +45,14 @@
     <div class="panel-head">
       <div class="row">
         <div class="col-md-6 col-xs-12">
-          <h2>Corrent API</h2>
+          <h2>Current API</h2>
           <div class="status-area roundscroll ">
             <% if device.api_json.present? %>
               <%= render partial: 'devices/show_api_data', collection: device.api_json, as:  :api_json %>
             <% end %>
           </div>
         </div>
+        <!--
         <div class="col-md-6 col-xs-12">
           <div class="buttons">
             <div class="connnect-button dbtn">
@@ -203,7 +204,7 @@
               </table>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
